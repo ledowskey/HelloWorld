@@ -15,11 +15,13 @@ public class HelloWorld {
     public static void main(String[] args) throws IOException {
         System.out.println("HelloWorld!!!");
 
+        String fileName = "2.txt";
+
         ZipOutputStream zip = new ZipOutputStream(new FileOutputStream("C:\\JavaRush\\archive.zip"));
 
-        zip.putNextEntry(new ZipEntry("document.txt"));
+        zip.putNextEntry(new ZipEntry(fileName));
 
-        File file = new File("C:\\JavaRush\\1.txt");
+        File file = new File("C:\\JavaRush\\".concat(fileName));
         Files.copy(file.toPath(),zip);
         System.out.println("Operation successful!");
     }
